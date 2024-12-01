@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+import Hero from '../components/Hero.astro';
+import Navbar from '../components/Navbar.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout title="My Creative Portfolio">
+  <AnimatedBackground />
+  <Navbar />
+  <Hero />
+  <About />
+  <Projects />
+  <Contact />
+</Layout>
+
+<style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #000;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+---
+<div class="animated-background">
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="floating-elements"></div>
+</div>
+
+<style>
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(45deg, #000428, #004e92);
+  }
+
+  .cube {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255,255,255,0.1);
+    animation: cubeRotate 20s linear infinite;
+  }
+
+  .cube:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    border-color: rgba(255, 0, 0, 0.3);
+  }
+
+  .cube:nth-child(2) {
+    top: 60%;
+    left: 50%;
+    border-color: rgba(255, 255, 0, 0.3);
+  }
+
+  .cube:nth-child(3) {
+    top: 30%;
+    left: 80%;
+    border-color: rgba(0, 0, 255, 0.3);
+  }
+
+  .cube:nth-child(4) {
+    top: 70%;
+    left: 10%;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  @keyframes cubeRotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+    mix-blend-mode: overlay;
+  }
+</style> 

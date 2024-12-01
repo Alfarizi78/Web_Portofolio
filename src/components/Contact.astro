@@ -1,0 +1,338 @@
+---
+---
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2 class="section-title">Get In Touch</h2>
+    <form class="contact-form" action="https://formspree.io/f/mqakgnql" method="POST" onsubmit="return validateForm()">
+      <div class="form-group">
+        <div class="input-container">
+          <input type="text" name="name" required placeholder=" " minlength="2" />
+          <label>Your Name</label>
+          <div class="input-line"></div>
+          <span class="error-message"></span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="input-container">
+          <input type="email" name="email" required placeholder=" " pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+          <label>Your Email</label>
+          <div class="input-line"></div>
+          <span class="error-message"></span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="input-container">
+          <textarea name="message" required placeholder=" " minlength="10"></textarea>
+          <label>Your Message</label>
+          <div class="input-line"></div>
+          <span class="error-message"></span>
+        </div>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">Send Message</span>
+        <div class="btn-particles"></div>
+      </button>
+    </form>
+    
+    <div class="contact-decoration">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-container {
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, #ff0000, #ffd700);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .input-container {
+    position: relative;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: 0.3s ease;
+    pointer-events: none;
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label,
+  textarea:focus ~ label,
+  textarea:not(:placeholder-shown) ~ label {
+    top: -1.5rem;
+    left: 0;
+    font-size: 0.8rem;
+    color: #ffd700;
+  }
+
+  .input-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+  }
+
+  .input-line::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #ffd700);
+    transform: translateX(-100%);
+    transition: 0.3s ease;
+  }
+
+  input:focus ~ .input-line::after,
+  textarea:focus ~ .input-line::after {
+    transform: translateX(0);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff0000, #0000ff);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(255,255,255,0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  .submit-btn:hover .btn-particles {
+    opacity: 1;
+  }
+
+  .contact-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(255,0,0,0.1), rgba(0,0,255,0.1));
+    filter: blur(50px);
+  }
+
+  .circle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+  }
+
+  .circle:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    right: -100px;
+  }
+
+  .circle:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  @media (max-width: 768px) {
+    .contact-form {
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    input, textarea {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .contact-section {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+  }
+
+  input:invalid,
+  textarea:invalid {
+    border-color: #ff4444;
+  }
+</style>
+
+<script>
+  const submitBtn = document.querySelector('.submit-btn') as HTMLButtonElement;
+  const form = document.querySelector('.contact-form') as HTMLFormElement;
+  
+  // Particle effect pada button
+  submitBtn?.addEventListener('mousemove', (e: MouseEvent) => {
+    if (!submitBtn) return;
+    
+    const rect = submitBtn.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / submitBtn.clientWidth) * 100;
+    const y = ((e.clientY - rect.top) / submitBtn.clientHeight) * 100;
+    
+    submitBtn.style.setProperty('--x', `${x}%`);
+    submitBtn.style.setProperty('--y', `${y}%`);
+  });
+
+  // Form validation
+  function validateForm() {
+    const name = form.querySelector('input[name="name"]') as HTMLInputElement;
+    const email = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const message = form.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+    
+    let isValid = true;
+
+    // Validate name
+    if (name.value.length < 2) {
+      showError(name, 'Name must be at least 2 characters');
+      isValid = false;
+    } else {
+      clearError(name);
+    }
+
+    // Validate email
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email.value)) {
+      showError(email, 'Please enter a valid email address');
+      isValid = false;
+    } else {
+      clearError(email);
+    }
+
+    // Validate message
+    if (message.value.length < 10) {
+      showError(message, 'Message must be at least 10 characters');
+      isValid = false;
+    } else {
+      clearError(message);
+    }
+
+    return isValid;
+  }
+
+  function showError(element: HTMLElement, message: string) {
+    const container = element.closest('.input-container');
+    const errorElement = container?.querySelector('.error-message');
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
+
+  function clearError(element: HTMLElement) {
+    const container = element.closest('.input-container');
+    const errorElement = container?.querySelector('.error-message');
+    if (errorElement) {
+      errorElement.textContent = '';
+    }
+  }
+</script> 

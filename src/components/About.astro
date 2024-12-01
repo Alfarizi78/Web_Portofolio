@@ -1,0 +1,278 @@
+---
+---
+<section id="about" class="about-section">
+  <div class="content-wrapper">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="profile-card">
+        <div class="profile-image">
+          <div class="image-glitch"></div>
+        </div>
+        <div class="profile-info">
+          <h3>Creative Developer</h3>
+          <p class="bio">Seorang pengembang web kreatif yang passionate dalam menciptakan pengalaman digital yang unik dan memukau.</p>
+        </div>
+      </div>
+      <div class="skills-orbit">
+        <div class="orbit-circle"></div>
+        <div class="skill-items">
+          <div class="skill-item" style="--i:0">HTML</div>
+          <div class="skill-item" style="--i:1">CSS</div>
+          <div class="skill-item" style="--i:2">JavaScript</div>
+          <div class="skill-item" style="--i:3">React</div>
+          <div class="skill-item" style="--i:4">Node.js</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    background: linear-gradient(45deg, #ff0000, #ffd700);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .about-content {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .profile-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    max-width: 500px;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-glitch {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0000, #ffd700);
+    animation: glitchEffect 5s infinite;
+  }
+
+  .profile-info {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .profile-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff0000, #ffd700);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bio {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .skills-orbit {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    max-width: 500px;
+  }
+
+  .orbit-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+  }
+
+  .skill-items {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .skill-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-150px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    animation: floatSkill 5s infinite;
+    animation-delay: calc(var(--i) * 0.5s);
+    white-space: nowrap;
+  }
+
+  @keyframes glitchEffect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(5px, -5px); }
+    60% { transform: translate(-5px, -5px); }
+    80% { transform: translate(5px, 5px); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @keyframes floatSkill {
+    0%, 100% { transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-150px); }
+    50% { transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-160px); }
+  }
+
+  /* Tablet Styles */
+  @media (max-width: 1024px) {
+    .about-content {
+      gap: 2rem;
+    }
+
+    .skills-orbit {
+      height: 350px;
+    }
+
+    .orbit-circle {
+      width: 250px;
+      height: 250px;
+    }
+
+    .skill-item {
+      transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-125px);
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 4rem 1rem;
+    }
+
+    .about-content {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .profile-card,
+    .skills-orbit {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+    }
+
+    .skills-orbit {
+      height: 300px;
+    }
+
+    .orbit-circle {
+      width: 200px;
+      height: 200px;
+    }
+
+    .skill-item {
+      transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-100px);
+      padding: 0.6rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Small Mobile Styles */
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .profile-info h3 {
+      font-size: 1.5rem;
+    }
+
+    .bio {
+      font-size: 0.9rem;
+    }
+
+    .skills-orbit {
+      height: 250px;
+    }
+
+    .orbit-circle {
+      width: 180px;
+      height: 180px;
+    }
+
+    .skill-item {
+      transform: translate(-50%, -50%) rotate(calc(var(--i) * 72deg)) translateY(-90px);
+      padding: 0.5rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Landscape Mode */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .about-section {
+      padding: 2rem 1rem;
+      min-height: auto;
+    }
+
+    .about-content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+    }
+
+    .skills-orbit {
+      height: 250px;
+    }
+  }
+</style> 
